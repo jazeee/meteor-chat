@@ -1,0 +1,25 @@
+@import "{poetic:materialize-scss}/sass/components/_color.scss"
+$primary-color: color("blue-grey", "darken-3")
+$primary-color-light: lighten($primary-color, 15%)
+$primary-color-dark: darken($primary-color, 15%)
+
+$secondary-color: color("blue", "darken-1")
+$success-color: color("green", "base")
+$error-color: color("red", "base")
+$link-color: color("blue-grey", "lighten-3")
+
+$text-color: color("grey", "lighten-3")
+$input-background: color("grey", "darken-4")
+$placeholder-text-color: darken($text-color, 60%)
+$input-success-color: darken($success-color, 15%)
+$input-focus-color: $secondary-color
+$input-border-color: $secondary-color
+
+input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill
+	-webkit-box-shadow: 0 0 0 50px color("grey", "darken-4") inset !important
+	-webkit-text-fill-color: $text-color
+body
+	background-color: color("grey", "darken-4")
+	color: $text-color
+
+@import "{poetic:materialize-scss}/sass/materialize.scss"

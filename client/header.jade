@@ -1,0 +1,24 @@
+template(name="header")
+	nav
+		.nav-wrapper
+			a.brand-logo(href="{{pathFor 'home'}}") Home
+			ul.right.hide-on-med-and-down
+				if currentUser
+					li
+						a(href="{{pathFor 'newChatRoom'}}") New Chat Room
+				li
+					if currentUser
+						a.sign-out(href="{{pathFor 'signIn'}}") {{getEmail}} Sign Out
+					else
+							a(href="{{pathFor 'signIn'}}") Sign In
+
+template(name="signIn")
+	+header
+	.row
+		.col.s8.offset-s2
+			if currentUser
+				h2 {{getEmail}} is logged in
+				.row
+					a(href="{{pathFor 'home'}}") Home
+			else
+				+atForm
