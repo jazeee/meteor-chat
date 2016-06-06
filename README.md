@@ -6,4 +6,4 @@ Install MeteorJs 1.3.2 and run using `meteor --port 3020`
 Optionally, install Mongo and set `MONGO_URL` prior to running.
 
 Or visit Heroku deployment:
-
+http://jazeee-meteor-chat.herokuapp.com
