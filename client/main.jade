@@ -1,17 +1,7 @@
 head
 	title Jaz's Meteor Chat App
+	meta(name="viewport" content="width=device-width, initial-scale=1.0")
 
 template(name="home")
 	+header
-	.row
-		.col.s6.offset-s3
-			h1 Chat Rooms
-			p Open a chat room or sign in to create a new chat room.
-	.row
-		.col.m10.offset-m1
-			each chatRoom in chatRooms
-				.card.brown.darken-4
-					a.card-content.white-text(href="{{pathFor 'chatRoom' chatRoomId=chatRoom._id}}")
-						.span.card-title
-							| {{chatRoom.name}}
-						p.right {{formatDate chatRoom.createdAt}}
+	+chatRooms

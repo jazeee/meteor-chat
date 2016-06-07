@@ -27,6 +27,9 @@
 }
 @Models.Chats.attachSchema @Schemas.Chats
 
+@Models.Chats.allow
+	insert: (userId, doc) ->
+		return userId?
 
 @Schemas.ChatRooms = new SimpleSchema {
 	name:
@@ -37,3 +40,7 @@
 		autoValue: -> new Date()
 }
 @Models.ChatRooms.attachSchema @Schemas.ChatRooms
+
+@Models.ChatRooms.allow
+	insert: (userId, doc) ->
+		return userId?

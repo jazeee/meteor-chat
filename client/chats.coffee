@@ -13,6 +13,9 @@ FlowRouter.route "/chatRooms/:chatRoomId",
 		@register 'chats', Meteor.subscribe "chats", params.chatRoomId
 		@register 'chatRooms', Meteor.subscribe "chatRooms", params.chatRoomId
 
+Template.chatRooms.helpers
+	chatRooms: @Models.ChatRooms.find {}, sort: 'createdAt': -1
+
 Template.chatRoom.helpers
 	chats: Models.Chats.find {}, sort: 'createdAt': -1
 	chatRoom: -> Models.ChatRooms.findOne()

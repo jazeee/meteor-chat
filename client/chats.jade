@@ -1,3 +1,17 @@
+template(name="chatRooms")
+	.row
+		.col.s6.offset-s3
+			h1.center Chat Rooms
+			p.center Open a chat room or sign in to create a new chat room.
+	.row
+		.col.m10.offset-m1
+			each chatRoom in chatRooms
+				.card.brown.darken-4
+					a.card-content.white-text(href="{{pathFor 'chatRoom' chatRoomId=chatRoom._id}}")
+						.span.card-title
+							| {{chatRoom.name}}
+						p.right {{formatDate chatRoom.createdAt}}
+
 template(name="newChatRoom")
 	+header
 	.row
@@ -12,11 +26,11 @@ template(name="chatRoom")
 	+header
 	.row
 		.col.m6.offset-m3
-			h1 {{chatRoom.name}}
+			h1.center {{chatRoom.name}}
 			if currentUser
 				+quickForm(collection="Models.Chats" id="chat" fields="message" type="insert")
 	.row
-		.col.m6.offset-m3
+		.col.m6.offset-m3.s12
 			each chat in chats
 				.card.blue-grey.darken-1
 					.card-content.white-text

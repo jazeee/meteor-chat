@@ -28,6 +28,3 @@ FlowRouter.route "/",
 		BlazeLayout.render "home"
 	subscriptions: (params) ->
 		@register 'chatRooms', Meteor.subscribe "chatRooms"
-
-Template.home.helpers
-	chatRooms: @Models.ChatRooms.find {}, sort: 'createdAt': -1
