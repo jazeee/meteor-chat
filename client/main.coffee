@@ -1,9 +1,16 @@
 AutoForm.setDefaultTemplate('materialize')
+Template.header.onRendered ->
+	$(".button-collapse").sideNav()
+	$(".button-collapse").sideNav('hide')
 
 FlowRouter.route "/sign-in",
 	name: "signIn"
 	action: ->
 		BlazeLayout.render "signIn"
+
+Accounts.onLogin ->
+	if FlowRouter.current().route.name == 'signIn'
+		FlowRouter.go 'home'
 
 Template.registerHelper	"getEmail", ->
 	Meteor.user()?.emails?[0]?.address

@@ -11,16 +11,15 @@ template(name="newChatRoom")
 template(name="chatRoom")
 	+header
 	.row
-		.col.s6.offset-s3
+		.col.m6.offset-m3
 			h1 {{chatRoom.name}}
 			if currentUser
 				+quickForm(collection="Models.Chats" id="chat" fields="message" type="insert")
 	.row
-		.col.s6.offset-s3
+		.col.m6.offset-m3
 			each chat in chats
 				.card.blue-grey.darken-1
 					.card-content.white-text
-						.span.card-title
-							| {{chat.message}}
+						h4 {{chat.message}}
 						p {{chat.email}}
-						p.right {{formatDate chat.createdAt}}
+						h6 {{formatDate chat.createdAt}}

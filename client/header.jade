@@ -1,14 +1,29 @@
 template(name="header")
 	nav
 		.nav-wrapper
-			a.brand-logo(href="{{pathFor 'home'}}") Home
+			a.brand-logo(href="{{pathFor 'home'}}") Jazeee Meteor Chat
+			a.button-collapse(href="#" data-activates="mobile-nav")
+				i.material-icons menu
 			ul.right.hide-on-med-and-down
+				li
+					if currentUser
+						a.sign-out(href="{{pathFor 'signIn'}}") Sign Out
+					else
+							a(href="{{pathFor 'signIn'}}") Sign In
+				if currentUser
+					li
+						a(href="{{pathFor 'home'}}") Chat Rooms
+					li
+						a(href="{{pathFor 'newChatRoom'}}") New Chat Room
+			ul.side-nav#mobile-nav.blue-grey.darken-2
+				li
+					a(href="{{pathFor 'home'}}") Chat Rooms
 				if currentUser
 					li
 						a(href="{{pathFor 'newChatRoom'}}") New Chat Room
 				li
 					if currentUser
-						a.sign-out(href="{{pathFor 'signIn'}}") {{getEmail}} Sign Out
+						a.sign-out(href="{{pathFor 'signIn'}}") Sign Out {{getEmail}} 
 					else
 							a(href="{{pathFor 'signIn'}}") Sign In
 
@@ -18,7 +33,7 @@ template(name="signIn")
 		.col.s8.offset-s2
 			if currentUser
 				h2 {{getEmail}} is logged in
-				.row
+				h4.row
 					a(href="{{pathFor 'home'}}") Home
 			else
 				+atForm
